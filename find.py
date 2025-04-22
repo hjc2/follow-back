@@ -1,11 +1,13 @@
-#!/usr/bin/env python3
-import json
 import os
+import json
 
-# must be in dir
-FOLLOWING_FILE = "following.json"
-FOLLOWERS_FILE = "followers_1.json"
-OUTPUT_FILE = "non_followers.txt"
+# Get the directory where this script lives
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+FOLLOWING_FILE = os.path.join(SCRIPT_DIR, "following.json")
+FOLLOWERS_FILE = os.path.join(SCRIPT_DIR, "followers_1.json")
+OUTPUT_FILE   = os.path.join(SCRIPT_DIR, "non_followers.txt")
+
 
 def load_following(path):
     """Return a set of usernames you’re following (from relationships_following)."""
@@ -43,7 +45,7 @@ def main():
 
     non_followers = sorted(following - followers)
     if not non_followers:
-        print("Everyone you follow follows you back!")
+        print("🎉 Everyone you follow follows you back!")
     else:
         print("Profiles you follow who do NOT follow you back:\n")
         for u in non_followers:
