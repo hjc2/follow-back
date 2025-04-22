@@ -45,7 +45,7 @@ def main():
 
     non_followers = sorted(following - followers)
     if not non_followers:
-        print("🎉 Everyone you follow follows you back!")
+        print("Everyone you follow follows you back!")
     else:
         print("Profiles you follow who do NOT follow you back:\n")
         for u in non_followers:
